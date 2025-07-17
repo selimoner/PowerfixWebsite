@@ -11,6 +11,9 @@ import About from "@/pages/about";
 import Products from "@/pages/products";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
+// @ts-ignore
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import { Scroll } from "lucide-react";
 
 function Router() {
   return (
@@ -26,19 +29,22 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-1">
-            <Router />
-          </main>
-          <Footer />
-          <WhatsAppFloat />
-        </div>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <>
+      <ScrollToTop />
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1">
+              <Router />
+            </main>
+            <Footer />
+            <WhatsAppFloat />
+          </div>
+          <Toaster />
+        </TooltipProvider>
+      </QueryClientProvider>
+    </>
   );
 }
 

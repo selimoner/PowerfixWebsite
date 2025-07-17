@@ -1,5 +1,7 @@
 import { CheckCircle } from "lucide-react";
 import { COMPANY_INFO, WHY_CHOOSE_POWERFIX } from "@/lib/constants";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
@@ -9,7 +11,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">About Powerfix</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Leading construction adhesive manufacturer in Rwanda, delivering innovative solutions since {COMPANY_INFO.founded}
+            Leading construction adhesive manufacturer in Rwanda, using advanced Turkish technology, delivering innovative solutions since {COMPANY_INFO.founded}.
           </p>
         </div>
       </section>
@@ -21,17 +23,17 @@ const About = () => {
             <div>
               <h2 className="text-4xl font-bold text-powerfix-dark mb-6">Our Story</h2>
               <p className="text-lg text-powerfix-gray mb-6">
-                PowerFix was founded in {COMPANY_INFO.founded} in {COMPANY_INFO.location}. We produce high-quality adhesives for construction professionals, including tile adhesives, grout, and moisture-resistant solutions. Our vision is to be the regional leader in construction adhesives, delivering durable and innovative products.
+                Powerfix was founded in {COMPANY_INFO.founded} in {COMPANY_INFO.location}, under the Imex Hardware and Construction Ltd. We produce high-quality adhesives for construction professionals, including tile adhesives (C1), granite adhesives (C2), swimming pool and hummidity adhesives, grout, and water-humidity resistant solutions. Our vision is to be the regional leader in construction adhesives, delivering durable and innovative products.
               </p>
               <p className="text-lg text-powerfix-gray mb-6">
-                Manufactured with Turkish technology, our products meet international standards while being optimized for local conditions. We serve construction professionals, hardware stores, contractors, and distributors across Rwanda and the region.
+                Manufactured with Turkish technology, our products meet international standards while being optimized for local conditions. We serve construction professionals, hardware stores, contractors, and distributors across Rwanda.
               </p>
             </div>
             
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=800"
-                alt="Construction site with modern buildings"
+                src="/images/son.png"
+                alt="powerfix"
                 className="rounded-xl shadow-lg w-full h-auto"
               />
             </div>
@@ -44,16 +46,16 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-semibold text-powerfix-dark mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-semibold text-powerfix-dark mb-4">Our Vision</h3>
               <p className="text-powerfix-gray text-lg">
-                {COMPANY_INFO.mission}
+                {COMPANY_INFO.vision}
               </p>
             </div>
             
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-semibold text-powerfix-dark mb-4">Our Vision</h3>
+              <h3 className="text-2xl font-semibold text-powerfix-dark mb-4">Our Mission</h3>
               <p className="text-powerfix-gray text-lg">
-                {COMPANY_INFO.vision}
+                {COMPANY_INFO.mission}
               </p>
             </div>
           </div>
@@ -84,7 +86,7 @@ const About = () => {
       </section>
 
       {/* Company Stats */}
-      <section className="py-20 bg-powerfix-dark text-white">
+      {/* <section className="py-20 bg-powerfix-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -105,7 +107,18 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <div className="text-center">
+          <Link href="/contact">
+              <Button 
+                size="lg" 
+                className="flex-center bg-powerfix-red hover:bg-powerfix-red/90 text-white px-8 py-3 text-lg font-semibold"
+              >
+                Contact Us for more information
+              </Button>
+            </Link>
+      </div>
+      
     </div>
   );
 };

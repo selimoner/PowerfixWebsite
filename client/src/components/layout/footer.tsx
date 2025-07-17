@@ -64,10 +64,14 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h4 className="font-semibold text-white mb-4">Contact</h4>
-            <div className="space-y-2 text-gray-400">
+            <div className="space-y-3 text-gray-400">
               <p className="flex items-center">
                 <Phone className="w-4 h-4 mr-2" />
                 {COMPANY_INFO.contact.phone1}
+              </p>
+              <p className="flex items-center">
+                <Phone className="w-4 h-4 mr-2" />
+                {COMPANY_INFO.contact.phone2}
               </p>
               <p className="flex items-center">
                 <Mail className="w-4 h-4 mr-2" />
@@ -98,7 +102,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-600 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            &copy; 2024 PowerFix. All rights reserved. | IMEX Hardware and Construction Ltd (IHC)
+            &copy; 2025. All rights reserved. IMEX Hardware and Construction Ltd (IHC)
           </p>
         </div>
       </div>

@@ -4,8 +4,8 @@ export const COMPANY_INFO = {
   slogan: "High-Performance Construction Adhesive Solutions",
   founded: "2015",
   location: "Kigali, Rwanda",
-  mission: "Delivering durable and innovative adhesive solutions with expert service.",
-  vision: "To be the preferred brand for high-performance construction adhesives.",
+  mission: "We develop and deliver high-quality, durable and innovative adhesive and repairing solutions that empower builders to create safe, efficient and lasting structures. Our mission is to support our clients with reliable solutions and expert service.",
+  vision: "To be a regional leader in high-performance construction adhesive solutions, setting the standard in innovation, reliability and sustainability for the modern building industry.",
   
   contact: {
     address: "Gisozi, Gakinjiro, Umukindo Plaza, KN 78, Kigali - Rwanda",
