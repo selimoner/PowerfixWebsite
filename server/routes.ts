@@ -7,16 +7,14 @@ import rateLimit from "express-rate-limit";
 
 dotenv.config();
 
-// Zod validation schema
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email"),
   phone: z.string().optional(),
   message: z.string().min(10, "Message must be at least 10 characters"),
-  company: z.string().optional(), // honeypot
+  company: z.string().optional(),
 });
 
-// Rate limiter setup: max 5 requests per minute per IP
 const contactLimiter = rateLimit({
   windowMs: 60 * 1000,
   max: 5,
@@ -34,12 +32,9 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Apply limiter only to the contact route
   app.post("/api/contact", contactLimiter, async (req, res) => {
     try {
       const data = contactFormSchema.parse(req.body);
-
-      // Honeypot check
       if (data.company && data.company.trim() !== "") {
         return res.status(400).json({ success: false, message: "Spam detected." });
       }

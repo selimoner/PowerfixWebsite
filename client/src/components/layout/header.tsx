@@ -10,9 +10,9 @@ const Header = () => {
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
     { name: "Products", href: "/products" },
-    { name: "Contact", href: "/contact" }
+    { name: "About Us", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const isActive = (href: string) => {
@@ -36,21 +36,25 @@ const Header = () => {
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
           {
-                        <button
-                onClick={() => handleNavClick("/")}
-                className="flex items-center"
-              >
-                <div>
-                  <div className="flex items-center">
-                    <span className="text-powerfix-red font-bold text-4xl">POWER</span>
-                    <span className="text-powerfix-dark font-bold text-4xl">FIX</span>
-                  </div>
-                  <div className="text-powerfix-gray text-base font-medium tracking-wide">
-                    The world of adhesive
-                  </div>
+            <button
+              onClick={() => handleNavClick("/")}
+              className="flex items-center"
+            >
+              <div>
+                <div className="flex items-center">
+                  <span className="text-powerfix-red font-bold text-4xl">
+                    POWER
+                  </span>
+                  <span className="text-powerfix-dark font-bold text-4xl">
+                    FIX
+                  </span>
                 </div>
-              </button>
-              }
+                <div className="text-powerfix-gray text-base font-medium tracking-wide">
+                  The world of adhesive
+                </div>
+              </div>
+            </button>
+          }
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

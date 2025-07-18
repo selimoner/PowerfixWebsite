@@ -21,7 +21,6 @@ const Footer = () => {
             <p className="text-gray-400 mb-4">{COMPANY_INFO.slogan}</p>
             <p className="text-sm text-gray-400">Manufactured with Turkish Technology</p>
           </div>
-
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold text-white mb-4">Quick Links</h4>

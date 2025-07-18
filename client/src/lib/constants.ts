@@ -52,7 +52,7 @@ export const PRODUCTS = [
     id: "grout",
     name: "Grout",
     description: "Durable grout for all types of tiles",
-    features: ["All Tile Types", "Durable Finish", "Professional Results", "Long-lasting performance"],
+    features: ["All Tile Types", "Durable Finish", "Different Color Options", "Long-lasting performance"],
     package: "20kg",
     icon: "Brush"
   }
