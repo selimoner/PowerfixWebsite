@@ -52,7 +52,9 @@ const ContactForm = () => {
     )?.value;
 
     try {
-      const res = await fetch("/api/contact", {
+      // Production (cPanel) handles this with client/public/api/contact.php;
+      // the dev server answers the same path in server/routes.ts.
+      const res = await fetch("/api/contact.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,7 +62,7 @@ const ContactForm = () => {
         body: JSON.stringify({ ...data, company: honeypot }),
       });
 
-      const result = await res.json();
+      const result = await res.json().catch(() => ({}));
 
       if (res.ok) {
         toast({
