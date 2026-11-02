@@ -10,10 +10,10 @@ const About = () => {
     <div className="py-20">
       <Helmet>
         <title>About Powerfix | Adhesive Manufacturer in Kigali since 2015</title>
-        <meta name="description" content="Powerfix is made by Imex Hardware and Construction Ltd in Kigali since 2015, on Turkish machinery, for contractors, masons and hardware shops across Rwanda." />
+        <meta name="description" content="Powerfix is made by Imex Hardware and Construction Ltd in Kigali since 2015, on Turkish machinery, for contractors, builders and hardware shops across Rwanda." />
         <link rel="canonical" href="https://powerfix.rw/about" />
         <meta property="og:title" content="About Powerfix | Adhesive Manufacturer in Kigali since 2015" />
-        <meta property="og:description" content="Powerfix is made by Imex Hardware and Construction Ltd in Kigali since 2015, on Turkish machinery, for contractors, masons and hardware shops across Rwanda." />
+        <meta property="og:description" content="Powerfix is made by Imex Hardware and Construction Ltd in Kigali since 2015, on Turkish machinery, for contractors, builders and hardware shops across Rwanda." />
         <meta property="og:url" content="https://powerfix.rw/about" />
       </Helmet>
       {/* Hero Section */}

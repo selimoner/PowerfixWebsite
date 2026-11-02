@@ -1,2 +1,9 @@
 node_modules
 .env
+
+# build output (GitHub Actions builds and deploys it)
+dist/
+
+# OS and archive clutter
+.DS_Store
+*.tar.gz

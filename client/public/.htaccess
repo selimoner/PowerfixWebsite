@@ -1,28 +1,63 @@
 # Powerfix website (single-page React app on Apache / cPanel)
 
-# Send every page address (/products, /about, /contact ...) to index.html so
-# links, refreshes and shared URLs work instead of showing the host's 404 page.
-# Real files and folders (images, assets, api/contact.php) are served as-is.
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # ---- One address: https://powerfix.rw ------------------------------------
+  # .well-known stays reachable over http and www so SSL certificates renew.
+  # www.powerfix.rw -> https://powerfix.rw (permanent; avoids duplicate pages on Google)
+  RewriteCond %{HTTP_HOST} ^www\.powerfix\.rw$ [NC]
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule ^ https://powerfix.rw%{REQUEST_URI} [L,R=301]
+
+  # http:// -> https:// (302 while we confirm it on this host; switch to 301 later)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=302]
+
+  # ---- Never serve hidden files or leftovers from old manual uploads -------
+  # (.git, .env, the deploy tool's state file, the old server bundle index.js)
+  RewriteRule (^|/)\.(?!well-known/) - [F,L]
+  RewriteRule ^index\.js$ - [F,L]
+  RewriteRule \.(map|ts|tsx|sh|sql|log|tar|gz|zip)$ - [F,L]
+
+  # ---- Single-page app routing ---------------------------------------------
+  # Send every page address (/products, /about, /contact ...) to index.html so
+  # links, refreshes and shared URLs work. Real files are served as-is.
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
 
-# Compress text files for faster loading on mobile data
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
-</IfModule>
-
-# Cache hashed build assets for a year; always re-check index.html
+# ---- Security headers --------------------------------------------------------
 <IfModule mod_headers.c>
+  # Browsers remember to use https for a year
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # No other site may show powerfix.rw inside a frame (clickjacking)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  # Only our own scripts run; the only outside content is the Google Maps embed
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-src https://www.google.com https://maps.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+  Header always unset X-Powered-By
+
+  # Cache hashed build assets for a year; always re-check index.html
   <FilesMatch "^index\.html$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
   <FilesMatch "^index-[A-Za-z0-9_-]+\.(js|css)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
+  <FilesMatch "\.(webp|jpg|jpeg|png|svg|ico)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+# Compress text files for faster loading on mobile data
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml application/xml text/plain
 </IfModule>
