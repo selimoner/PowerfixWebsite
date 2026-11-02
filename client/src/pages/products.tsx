@@ -1,4 +1,4 @@
-import { Layers, Mountain, Waves, Brush, Check } from "lucide-react";
+import { Layers, Mountain, Waves, Droplets, Brush, Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PRODUCTS } from "@/lib/constants";
@@ -9,20 +9,20 @@ const iconMap = {
   Layers,
   Mountain,
   Waves,
+  Droplets,
   Brush,
 };
-const productImages = [
-  "/images/tileadh.png",
-  "/images/graniteadh.png",
-  "/images/swimmingpooladh.png",
-  "/images/grout.png",
-];
 
 const Products = () => {
   return (
     <div className="py-20">
       <Helmet>
-        <title>Powerfix | Products</title>
+        <title>Powerfix Products | Tile, Granite & Pool Adhesives, Repair Mortar, Grout</title>
+        <meta name="description" content="C1 tile and ceramic adhesive, C2 adhesive for granite, marble and large tiles, swimming pool adhesive, humidity repair mortar and grout. Made in Rwanda in 25 kg and 20 kg bags." />
+        <link rel="canonical" href="https://powerfix.rw/products" />
+        <meta property="og:title" content="Powerfix Products | Tile, Granite & Pool Adhesives, Repair Mortar, Grout" />
+        <meta property="og:description" content="C1 tile and ceramic adhesive, C2 adhesive for granite, marble and large tiles, swimming pool adhesive, humidity repair mortar and grout. Made in Rwanda in 25 kg and 20 kg bags." />
+        <meta property="og:url" content="https://powerfix.rw/products" />
       </Helmet>
       {/* Hero Section */}
       <section className="bg-powerfix-dark text-white py-16">
@@ -45,6 +45,7 @@ const Products = () => {
                 { bg: "bg-powerfix-yellow", text: "text-powerfix-dark" },
                 { bg: "bg-teal-400", text: "text-white" },
                 { bg: "bg-blue-500", text: "text-white" },
+                { bg: "bg-sky-700", text: "text-white" },
                 { bg: "bg-gray-500", text: "text-white" },
               ];
 
@@ -54,8 +55,11 @@ const Products = () => {
                     {/* Product Image */}
                     <div className="h-96 w-full overflow-hidden rounded-t-xl">
                       <img
-                        src={productImages[index]}
-                        alt={product.name}
+                        src={product.image}
+                        alt={`Powerfix ${product.name} ${product.package} bag`}
+                        width={640}
+                        height={960}
+                        loading="lazy"
                         className="w-full max-h-96 object-contain mx-auto"
                       />
                     </div>

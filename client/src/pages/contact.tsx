@@ -6,7 +6,12 @@ const Contact = () => {
   return (
     <div className="py-20">
       <Helmet>
-        <title>Powerfix | Contact</title>
+        <title>Contact Powerfix | Showroom in Gakinjiro, Kigali</title>
+        <meta name="description" content="Visit the Powerfix showroom at Umukindo Plaza, KG 33 Ave, Gakinjiro, or WhatsApp +250 788 309 854. Factory: Prime Economic Zone Phase 2, KG 69, Kigali." />
+        <link rel="canonical" href="https://powerfix.rw/contact" />
+        <meta property="og:title" content="Contact Powerfix | Showroom in Gakinjiro, Kigali" />
+        <meta property="og:description" content="Visit the Powerfix showroom at Umukindo Plaza, KG 33 Ave, Gakinjiro, or WhatsApp +250 788 309 854. Factory: Prime Economic Zone Phase 2, KG 69, Kigali." />
+        <meta property="og:url" content="https://powerfix.rw/contact" />
       </Helmet>
       {/* Hero Section */}
       <section className="bg-powerfix-dark text-white py-16">

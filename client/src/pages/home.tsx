@@ -10,7 +10,12 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>Powerfix | Home</title>
+        <title>Powerfix Rwanda | Tile Adhesive, Granite Adhesive & Grout</title>
+        <meta name="description" content="Powerfix makes tile, granite and swimming pool adhesives, humidity repair mortar and grout in Kigali with Turkish technology. Showroom in Gakinjiro. WhatsApp +250 788 309 854." />
+        <link rel="canonical" href="https://powerfix.rw/" />
+        <meta property="og:title" content="Powerfix Rwanda | Tile Adhesive, Granite Adhesive & Grout" />
+        <meta property="og:description" content="Powerfix makes tile, granite and swimming pool adhesives, humidity repair mortar and grout in Kigali with Turkish technology. Showroom in Gakinjiro. WhatsApp +250 788 309 854." />
+        <meta property="og:url" content="https://powerfix.rw/" />
       </Helmet>
       <Hero />
 
@@ -81,7 +86,7 @@ const Home = () => {
 
             <div>
               <img
-                src="images/12.jpg"
+                src="/images/12.jpg"
                 alt="Modern construction building with workers"
                 className="rounded-xl shadow-lg w-full h-auto"
               />
