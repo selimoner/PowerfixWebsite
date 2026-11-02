@@ -300,7 +300,7 @@ const ContactForm = () => {
                     Showroom Address
                   </h4>
                   <p className="text-powerfix-gray font-medium">
-                    Gisozi, Gakinjiro, KG 33, Umukindo Plaza
+                    Umukindo Plaza, KG 33 Ave, Gakinjiro, Gisozi
                   </p>
                   <p className="text-powerfix-gray font-medium">
                     Above Bank of Kigali Gisozi Branch

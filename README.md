@@ -89,7 +89,8 @@ powerfix-website/
 
 ## 📱 Contact Information
 
-- **Address:** Gisozi, Gakinjiro, Umukindo Plaza, KN 78, Kigali - Rwanda
+- **Showroom:** Umukindo Plaza, KG 33 Ave, Gakinjiro, Gisozi (above Bank of Kigali Gisozi Branch), Kigali - Rwanda
+- **Factory:** Prime Economic Zone Phase 2, KG 69, Plot No D22, Kigali - Rwanda
 - **Phone:** +250 788 308 285 / +250 788 309 854
 - **Email:** info@powerfix.rw
 - **Website:** powerfix.rw

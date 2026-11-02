@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Layers, Mountain, Waves, Brush, ArrowRight } from "lucide-react";
+import { Layers, Mountain, Waves, Droplets, Brush } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PRODUCTS } from "@/lib/constants";
@@ -8,6 +8,7 @@ const iconMap = {
   Layers,
   Mountain,
   Waves,
+  Droplets,
   Brush,
 };
 
@@ -25,15 +26,9 @@ const FeaturedProducts = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {PRODUCTS.map((product, index) => {
             const Icon = iconMap[product.icon as keyof typeof iconMap];
-            const productImages = [
-              "/images/tileadh.png",
-              "/images/graniteadh.png",
-              "/images/swimmingpooladh.png",
-              "/images/grout.png",
-            ];
 
             return (
               <Card
@@ -41,10 +36,13 @@ const FeaturedProducts = () => {
                 className="bg-gray-50 hover:shadow-lg transition-shadow"
               >
                 <CardContent className="p-6">
-                  <div className="mb-4 h-96 rounded-lg overflow-hidden">
+                  <div className="mb-4 aspect-[2/3] rounded-lg overflow-hidden">
                     <img
-                      src={productImages[index]}
-                      alt={product.name}
+                      src={product.image}
+                      alt={`Powerfix ${product.name} ${product.package} bag`}
+                      width={640}
+                      height={960}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </div>

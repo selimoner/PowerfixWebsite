@@ -22,6 +22,7 @@ const ReferenceProjects = () => {
                 <img
                   src={project.image}
                   alt={project.name}
+                  loading="lazy"
                   className="rounded-lg w-full h-48 object-cover mb-4"
                 />
                 <h3 className="text-xl font-semibold text-powerfix-dark mb-2">

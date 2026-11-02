@@ -9,7 +9,12 @@ const About = () => {
   return (
     <div className="py-20">
       <Helmet>
-        <title>Powerfix | About Us</title>
+        <title>About Powerfix | Adhesive Manufacturer in Kigali since 2015</title>
+        <meta name="description" content="Powerfix is made by Imex Hardware and Construction Ltd in Kigali since 2015, on Turkish machinery, for contractors, masons and hardware shops across Rwanda." />
+        <link rel="canonical" href="https://powerfix.rw/about" />
+        <meta property="og:title" content="About Powerfix | Adhesive Manufacturer in Kigali since 2015" />
+        <meta property="og:description" content="Powerfix is made by Imex Hardware and Construction Ltd in Kigali since 2015, on Turkish machinery, for contractors, masons and hardware shops across Rwanda." />
+        <meta property="og:url" content="https://powerfix.rw/about" />
       </Helmet>
       {/* Hero Section */}
       <section className="bg-powerfix-dark text-white py-16">
@@ -37,9 +42,9 @@ const About = () => {
                 Powerfix was founded in {COMPANY_INFO.founded} in{" "}
                 {COMPANY_INFO.location}, under the Imex Hardware and
                 Construction Ltd. We produce high-quality adhesives for
-                construction professionals, including tile adhesives (C1),
-                granite adhesives (C2), swimming pool and hummidity adhesives,
-                grout, and water-humidity resistant solutions. Our vision is to
+                construction professionals: tile and ceramic adhesive (C1),
+                granite and marble adhesive (C2), swimming pool adhesive,
+                humidity repair mortar and grout. Our vision is to
                 be the regional leader in construction adhesives, delivering
                 durable and innovative products.
               </p>
@@ -53,8 +58,11 @@ const About = () => {
 
             <div>
               <img
-                src="/images/son.png"
-                alt="powerfix"
+                src="/images/about.webp"
+                alt="Powerfix products and production in Kigali"
+                width={1280}
+                height={720}
+                loading="lazy"
                 className="rounded-xl shadow-lg w-full h-auto"
               />
             </div>
