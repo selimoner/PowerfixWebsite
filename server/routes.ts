@@ -32,7 +32,9 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  app.post("/api/contact", contactLimiter, async (req, res) => {
+  // "/api/contact.php" matches the production handler on cPanel
+  // (client/public/api/contact.php) so the same form works in development.
+  app.post(["/api/contact", "/api/contact.php"], contactLimiter, async (req, res) => {
     try {
       const data = contactFormSchema.parse(req.body);
       if (data.company && data.company.trim() !== "") {
