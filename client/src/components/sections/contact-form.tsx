@@ -62,9 +62,10 @@ const ContactForm = () => {
         body: JSON.stringify({ ...data, company: honeypot }),
       });
 
-      const result = await res.json().catch(() => ({}));
+      // A non-JSON reply (e.g. the host's bot check) counts as a failure.
+      const result = await res.json().catch(() => null);
 
-      if (res.ok) {
+      if (res.ok && result && result.success !== false) {
         toast({
           title: "Message sent!",
           description: result.message,
@@ -72,15 +73,17 @@ const ContactForm = () => {
         form.reset();
       } else {
         toast({
-          title: "Error",
-          description: result.message || "Failed to send message.",
+          title: "Message not sent",
+          description:
+            (result && result.message) ||
+            `We couldn't send your message right now. Please WhatsApp or call us on ${COMPANY_INFO.contact.phone2}.`,
           variant: "destructive",
         });
       }
     } catch (err) {
       toast({
-        title: "Server error",
-        description: "Please try again later.",
+        title: "Message not sent",
+        description: `We couldn't send your message right now. Please WhatsApp or call us on ${COMPANY_INFO.contact.phone2}.`,
         variant: "destructive",
       });
     } finally {
